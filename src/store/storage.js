@@ -4,14 +4,14 @@ const SET_KEY = 'mt_settings_v1'
 
 const defaultSettings = {
   tagline: 'Umrah • Hajj • Holy Land • Custom Travel',
-  heroTitle: 'Plan your Umrah & Holy Land journey with confidence',
-  heroSubtitle: "Expertly curated packages, transparent pricing, and personal support from Miller's Travel & Tours.",
+  heroTitle: 'Sacred Journeys, Unforgettable Experiences',
+  heroSubtitle: 'Premium Umrah & Holy Land packages with personal support from Cape Town.',
   address: '200 Wetton Rd, Wetton, Cape Town, 7780',
   phone1: '064 523 2961',
   phone2: '076 799 2661',
   email: 'abubaker@millerstravels.co.za',
-  primary: '#d4af37',
-  accent: '#8a2be2'
+  primary: '#d6b25e',
+  accent: '#7b4bc4'
 }
 
 function seed(){
@@ -22,13 +22,6 @@ function seed(){
   if(!localStorage.getItem(SET_KEY)){
     localStorage.setItem(SET_KEY, JSON.stringify(defaultSettings))
   }
-  // apply theme colors
-  try{
-    const s = JSON.parse(localStorage.getItem(SET_KEY)) || defaultSettings
-    const root = document.documentElement
-    root.style.setProperty('--color-primary', s.primary || '#d4af37')
-    root.style.setProperty('--color-accent', s.accent || '#8a2be2')
-  }catch(e){}
 }
 
 export function getPackages(){
@@ -44,11 +37,11 @@ export function getSettings(){
 }
 export function saveSettings(s){
   localStorage.setItem(SET_KEY, JSON.stringify(s))
-  try{
-    const root = document.documentElement
-    root.style.setProperty('--color-primary', s.primary || '#d4af37')
-    root.style.setProperty('--color-accent', s.accent || '#8a2be2')
-  }catch(e){}
+}
+export function resetDemo(){
+  localStorage.removeItem(PKG_KEY)
+  localStorage.removeItem(SET_KEY)
+  seed()
 }
 
 export function getSeedPackages(){
@@ -58,7 +51,11 @@ export function getSeedPackages(){
       title: 'Muharram June 2026 Holiday Umrah Package',
       dep: '26 June 2026',
       ret: '11 July 2026',
-      itinerary: [],
+      itinerary: [
+        'Return flights on Ethiopian Airlines via JHB',
+        'Visa assistance & dedicated tour leader',
+        'Zamzam + in-country transfers'
+      ],
       options: [
         { stays: ['7 Nights Province Al Sham B&B', '7 Nights Voco Makkah B&B'], prices: { quad: 29990, triple: 32990, double: 35990 } },
         { stays: ['7 Nights Province Al Sham B&B', '7 Nights Anjum Makkah B&B'], prices: { quad: 33990, triple: 34990, double: 39990 } },

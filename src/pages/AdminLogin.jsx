@@ -20,25 +20,21 @@ export default function AdminLogin(){
   }
 
   return (
-    <main className="container" style={{padding:'2rem 0', maxWidth:480}}>
-      <h1>Admin Login</h1>
-      <form onSubmit={handleSubmit} className="card">
+    <main className="container py-10 max-w-md">
+      <h1 className="font-display text-4xl">Admin Login</h1>
+      <form onSubmit={handleSubmit} className="card mt-4">
         <div className="card-body">
-          {error && <div className="badge" style={{marginBottom:'.75rem', borderColor:'red', background:'rgba(220,38,38,.15)'}}>{error}</div>}
-          <div className="form-row">
-            <label>Email</label>
-            <input type="email" value={email} onChange={e=>setEmail(e.target.value)} required />
-          </div>
-          <div className="form-row">
-            <label>Password</label>
-            <input type="password" value={password} onChange={e=>setPassword(e.target.value)} required />
-          </div>
+          {error && <div className="mb-3 text-sm text-red-700 bg-red-50 border border-red-200 rounded-md p-2">{error}</div>}
+          <label className="block text-sm font-medium">Email</label>
+          <input className="w-full border border-gray-200 rounded-lg px-3 py-2 mt-1" type="email" value={email} onChange={e=>setEmail(e.target.value)} required />
+          <label className="block text-sm font-medium mt-3">Password</label>
+          <input className="w-full border border-gray-200 rounded-lg px-3 py-2 mt-1" type="password" value={password} onChange={e=>setPassword(e.target.value)} required />
         </div>
         <div className="card-actions">
           <button className="btn btn-primary" type="submit">Login</button>
         </div>
       </form>
-      <p style={{color:'var(--color-muted)'}}>Demo credentials — Email: <code>admin@millerstravels.co.za</code> | Password: <code>demo123</code></p>
+      <p className="text-gray-500 text-sm mt-2">Demo credentials — Email: <code>admin@millerstravels.co.za</code> | Password: <code>demo123</code></p>
     </main>
   )
 }

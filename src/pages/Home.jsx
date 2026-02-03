@@ -1,5 +1,7 @@
 
 import Hero from '../components/Hero'
+import TrustRow from '../components/TrustRow'
+import CTASection from '../components/CTASection'
 import { getPackages } from '../store/storage'
 import PackageCard from '../components/PackageCard'
 
@@ -8,12 +10,14 @@ export default function Home(){
   return (
     <main>
       <Hero />
-      <section className="container" id="packages" style={{padding:'2rem 0'}}>
-        <h2>Featured Packages</h2>
-        <div className="grid grid-sm-2 grid-md-3" style={{marginTop:'1rem'}}>
+      <TrustRow />
+      <section id="packages" className="container py-10">
+        <h2 className="font-display text-3xl">Featured Packages</h2>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
           {packages.map(p => <PackageCard key={p.id} pkg={p} />)}
         </div>
       </section>
+      <CTASection />
     </main>
   )
 }

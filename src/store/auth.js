@@ -6,7 +6,6 @@ const DEMO_PASS = 'demo123'
 export function login(email, password){
   if(email===DEMO_EMAIL && password===DEMO_PASS){
     localStorage.setItem(AUTH_KEY, JSON.stringify({ email, t: Date.now() }))
-    // redirect
     location.assign('/admin')
   } else {
     throw new Error('Invalid credentials')

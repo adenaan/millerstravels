@@ -18,3 +18,5 @@
 
 .nav-link{ @apply px-3 py-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100; }
 .nav-link.active{ @apply bg-gold text-white hover:bg-gold; }
+
+.rate-chip{ @apply inline-flex items-center px-2 py-0.5 rounded-md border border-gray-200 text-sm font-semibold; }

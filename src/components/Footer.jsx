@@ -5,16 +5,16 @@ import { getSettings } from '../store/storage'
 export default function Footer(){
   const s = getSettings()
   return (
-    <footer className="footer">
-      <div className="container" style={{display:'grid', gap:'1rem'}}>
-        <div style={{display:'grid', gap:'.25rem'}}>
-          <strong>Contact</strong>
-          <div>{s?.address || '200 Wetton Rd, Wetton, Cape Town, 7780'}</div>
-          <div>Email: <a href={`mailto:${s?.email || 'abubaker@millerstravels.co.za'}`}>{s?.email || 'abubaker@millerstravels.co.za'}</a></div>
-          <div>Phone: <a href={`tel:${s?.phone1 || '064 523 2961'}`}>{s?.phone1 || '064 523 2961'}</a> / <a href={`tel:${s?.phone2 || '076 799 2661'}`}>{s?.phone2 || '076 799 2661'}</a></div>
+    <footer className="mt-16 bg-white border-t border-gray-100">
+      <div className="container py-8 grid gap-4">
+        <div>
+          <strong className="text-gray-900">Contact</strong>
+          <div className="text-sm text-gray-600 mt-1">{s?.address || '200 Wetton Rd, Wetton, Cape Town, 7780'}</div>
+          <div className="text-sm text-gray-600">Email: <a className="underline" href={`mailto:${s?.email || 'abubaker@millerstravels.co.za'}`}>{s?.email || 'abubaker@millerstravels.co.za'}</a></div>
+          <div className="text-sm text-gray-600">Phone: <a className="underline" href={`tel:${s?.phone1 || '064 523 2961'}`}>{s?.phone1 || '064 523 2961'}</a> / <a className="underline" href={`tel:${s?.phone2 || '076 799 2661'}`}>{s?.phone2 || '076 799 2661'}</a></div>
         </div>
-        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-          <small style={{color:'var(--color-muted)'}}>© {new Date().getFullYear()} Miller's Travel & Tours. All rights reserved.</small>
+        <div className="flex items-center justify-between">
+          <small className="text-gray-500">© {new Date().getFullYear()} Miller's Travel & Tours.</small>
           <SocialIcons />
         </div>
       </div>

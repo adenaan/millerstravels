@@ -7,12 +7,12 @@ export default function Packages(){
   const [q, setQ] = useState('')
   const packages = getPackages().filter(p => p.title.toLowerCase().includes(q.toLowerCase()))
   return (
-    <main className="container" style={{padding:'2rem 0'}}>
-      <h1>All Packages</h1>
-      <div className="form-row" style={{maxWidth:480}}>
-        <input placeholder="Search e.g. Umrah, Three Haram, June 2026" value={q} onChange={e=>setQ(e.target.value)} />
+    <main className="container py-10">
+      <h1 className="font-display text-4xl">All Packages</h1>
+      <div className="mt-4 max-w-md">
+        <input className="w-full border border-gray-200 rounded-lg px-3 py-2" placeholder="Search e.g. Umrah, Three Haram, June 2026" value={q} onChange={e=>setQ(e.target.value)} />
       </div>
-      <div className="grid grid-sm-2 grid-md-3">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
         {packages.map(p => <PackageCard key={p.id} pkg={p} />)}
       </div>
     </main>
